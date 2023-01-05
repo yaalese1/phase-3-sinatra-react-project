@@ -1,0 +1,56 @@
+class CreateTrending < ActiveRecord::Migration[6.1]
+  def change
+    create_table :trending do |t|
+      t.string :name
+       t.string :poster_path
+       t.string :backdrop_path
+       t.string :overview 
+       t.string :original_name
+       t.string :original_title
+       t.string :title
+       t.integer :imdb_id
+       t.timestamp :created_at
+       t.timestamp :updated_at
+     end
+  end
+end
+
+
+
+
+
+
+class CreateTopRated < ActiveRecord::Migration[6.1]
+    def change
+      create_table :top_rated do |t|
+        t.string :name
+         t.string :poster_path
+         t.string :backdrop_path
+         t.string :overview 
+         t.string :original_name
+         t.string :original_title
+         t.string :title
+         t.integer :imdb_id
+         t.timestamp :created_at
+         t.timestamp :updated_at
+       end
+    end
+  end
+
+  class CreateMovieReviews < ActiveRecord::Migration[6.1]
+    def change
+      create_table :movie_reviews do |t|
+         t.string :comment  
+         t.string :popcorn_rating
+         t.integer :comedy_id
+         t.integer :netflix_original_id
+         t.integer :trending_id
+         t.string :top_rated_id
+         t.string :review
+         t.integer :imdb_id
+         t.timestamp :created_at
+         t.timestamp :updated_at
+       end
+    end
+  end
+  #cant use review rake migration error message : #you can't define an already defined column 'review'
