@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2023_01_04_235048) do
   create_table "netflix_original_comments", force: :cascade do |t|
     t.string "comment"
     t.integer "netflix_original_id"
-    t.integer "popcorn_rating"
+    t.integer "likes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2023_01_04_235048) do
   create_table "trending_comments", force: :cascade do |t|
     t.string "comment"
     t.integer "trending_id"
-    t.integer "popcorn_rating"
+    t.integer "likes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -23,8 +23,8 @@ class ApplicationController < Sinatra::Base
     post"/netflix_original_comments" do
       comment= NetflixOriginalComment.create(
         comment: params[:comment],
-        popcorn_rating: params[:popcorn_rating],
-        netflix_original_id: params[:netflix_original_id])
+        likes: params[:likes],
+        netflix_original_id: params[:mov_id])
         comment.to_json
     end
     delete"/netflix_original_comments/:id" do 
@@ -35,8 +35,8 @@ class ApplicationController < Sinatra::Base
 
     patch "/netflix_original_comments/:id" do
       comment= NetflixOriginalComment.find(params[:id])
-      comment.update(comment: params[:comment],
-      popcorn_rating: params[:popcorn_rating])
+      comment.update(
+      likes: params[:likes])
       comment.to_json
     end
 
@@ -66,8 +66,8 @@ class ApplicationController < Sinatra::Base
     post "/trending_comments" do
       comment = TrendingComment.create(
       comment: params[:comment],
-      popcorn_rating: params[:popcorn_rating],
-      trending_id: params[:trending_id])
+      likes: params[:likes],
+      trending_id: params[:mov_id])
       comment.to_json
     end
 
@@ -89,7 +89,7 @@ class ApplicationController < Sinatra::Base
     patch "/trending_comments/:id" do
       comment= TrendingComment.find(params[:id])
       comment.update(comment: params[:comment],
-      popcorn_rating: params[:popcorn_rating])
+      likes: params[:likes])
        
       comment.to_json
     end
